@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="text-center">Viccek</h1>
+
+  <ng-container *ngFor="let category of jokeCategories; let i = index">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-12">
+        <div
+          class="category w-100 px-2 mt-1 text-center py-2 align-items-center"
+          (click)="selectCategory(i)"
+        >
+          {{ category }}
+        </div>
+        <div
+          class="joke w-100 pt-2 px-2 text-center mx-auto"
+          *ngIf="choosenIndex === i && joke && joke.value"
+        >
+          <span class="text w-100 mt-2">{{ joke!.value }}</span>
+          <share-buttons
+            class="align-items-center justify-content-center w-100"
+            *ngIf="joke && joke.url && joke.icon_url"
+            [theme]="'material-dark'"
+            [image]="joke.icon_url"
+            [url]="joke.url"
+            [include]="['facebook', 'twitter', 'linkedin']"
+          >
+          </share-buttons>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

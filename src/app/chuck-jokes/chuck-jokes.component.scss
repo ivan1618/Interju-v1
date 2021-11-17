@@ -1,0 +1,30 @@
+@import "src/assets/styles/variables";
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  color: $fontColor;
+}
+
+.category {
+  background-color: $background;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.category:hover {
+  background-color: darken($background, 10%);
+}
+
+.joke {
+  background-color: darken($background, 5%);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  span {
+    color: $fontColor;
+  }
+}
