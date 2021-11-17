@@ -18,9 +18,10 @@ export class ChuckJokesComponent implements OnInit, OnDestroy {
   constructor(private jokeService: ChuckJokesService) {}
 
   ngOnInit(): void {
-    this.categorySubscription = this.jokeService
-      .getCategories()
-      .subscribe((response) => (this.jokeCategories = response));
+    this.categorySubscription = this.jokeService.getCategories().subscribe(
+      (response) => (this.jokeCategories = response),
+      () => alert('The page is unavailable!')
+    );
   }
 
   selectCategory(index: number) {
@@ -28,7 +29,10 @@ export class ChuckJokesComponent implements OnInit, OnDestroy {
     this.choosenIndex = index;
     this.jokeSubscription = this.jokeService
       .getJoke(this.jokeCategories[index])
-      .subscribe((response) => (this.joke = response));
+      .subscribe(
+        (response) => (this.joke = response),
+        () => alert('The page is unavailable!')
+      );
   }
 
   ngOnDestroy(): void {

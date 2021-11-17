@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Viccek</h1>
+  <h1 class="text-center">Chuck Norris Jokes</h1>
 
   <ng-container *ngFor="let category of jokeCategories; let i = index">
     <div class="row justify-content-center">
@@ -21,7 +21,7 @@
             [theme]="'material-dark'"
             [image]="joke.icon_url"
             [url]="joke.url"
-            [include]="['facebook', 'twitter', 'linkedin']"
+            [include]="['facebook', 'twitter', 'reddit', 'email']"
           >
           </share-buttons>
         </div>

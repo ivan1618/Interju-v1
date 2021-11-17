@@ -7,17 +7,15 @@ import { Joke } from '@entities/interface.entites';
   providedIn: 'root',
 })
 export class ChuckJokesService {
+  URL_FROM = 'https://api.chucknorris.io/jokes';
+
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<string[]> {
-    return this.http.get<string[]>(
-      'https://api.chucknorris.io/jokes/categories'
-    );
+    return this.http.get<string[]>(this.URL_FROM + '/categories');
   }
-  
+
   getJoke(category: string): Observable<Joke> {
-    return this.http.get<Joke>(
-      `https://api.chucknorris.io/jokes/random?category=${category}`
-    );
+    return this.http.get<Joke>(this.URL_FROM + `/random?category=${category}`);
   }
 }
